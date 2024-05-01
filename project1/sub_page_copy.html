@@ -1,90 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="sub_page_copy.css">
+    <link rel="stylesheet" href="main_page_onetrue.css">
 </head>
-<body>
-<div class="bg_color con_min_width">
-    <div class="Slide1691">
-        <header class="header">
-            <h2 class="MoviePlace">Movie Place</h2>
-        </header>
-        <div class="section_box">
-            <nav class="nav"></nav>
-            <div class="section_box">
-                <section class="section">
-                    <img src="태극기.jpeg" alt="팝업이미지" class="photo1 photo" onclick="openModal1()">
-                    <img src="킹덤.jpeg" alt="팝업이미지" class="photo2 photo" onclick="openModal2()">
-                    <img src="말아톤.jpeg" alt="팝업이미지" class="photo3 photo" onclick="openModal()">
-                    <img src="리틀포레스트.jpeg" alt="팝업이미지" class="photo4 photo" onclick="openModal()">
-                    <img src="동주.jpeg" alt="팝업이미지" class="photo5 photo" onclick="openModal()">
-                    <img src="늑대소년.jpeg" alt="팝업이미지" class="photo6 photo" onclick="openModal()">
-                    <img src="광해.jpeg" alt="팝업이미지" class="photo7 photo" onclick="openModal()">
-                    <img src="관상.jpeg" alt="팝업이미지" class="photo8 photo" onclick="openModal()">
-                    <!-- 모달 창 -->
-                    <div id="myModal1" class="modal">
-                        <div class="modal-content">
+
+<body class="bg_gradient">
+    <header class="container text-al-c header">
+        <h2 class="MoviePlace">Movie Place</h2>
+    </header>
+    <nav class="nav">nav</nav>
+    <div class="container">
+        <section class="section">
+            <img src="태극기.jpeg" alt="팝업이미지" class="photo1 photo" onclick="openModal1()">
+            <img src="킹덤.jpeg" alt="팝업이미지" class="photo2 photo" onclick="openModal2()">
+            <img src="말아톤.jpeg" alt="팝업이미지" class="photo3 photo" onclick="openModal()">
+            <img src="리틀포레스트.jpeg" alt="팝업이미지" class="photo4 photo" onclick="openModal()">
+            <img src="동주.jpeg" alt="팝업이미지" class="photo5 photo" onclick="openModal()">
+            <img src="늑대소년.jpeg" alt="팝업이미지" class="photo6 photo" onclick="openModal()">
+            <img src="광해.jpeg" alt="팝업이미지" class="photo7 photo" onclick="openModal()">
+            <img src="관상.jpeg" alt="팝업이미지" class="photo8 photo" onclick="openModal()">
+            <!-- 모달 창 -->
+            <div id="myModal1" class="modal">
+                <div class="modal-content">
+                    
+                    <div class="modal_box"> <!-- 모달 창에 표시될 내용입니다. -->
+                        
+                        <div class="container_modal">
                             <span class="close" onclick="closeModal1()">&times;</span> <!-- 모달을 닫는 닫기 버튼입니다. -->
-                            <div class="modal_box"> <!-- 모달 창에 표시될 내용입니다. -->
-                                <div class="box box1"></div>
-                                <div class="box modal_content_box">
-                                    <div class="box box2">광해</div>
+                            <div class="modal_title">광해</div>
+                        </div>
+                        <div class="container_modal">
+                            <img class="Place" style="border-radius: 7px" src="강릉 선교장.jpg" />
+                            <div class="youtube_area">
+                                <div class="container_modal_nav">
+                                    <div class="modal_nav">장소소개</div>
+                                    <div class="modal_nav">스토리</div>
+                                    <div class="modal_nav">위치</div>
                                 </div>
-                                <div class="box box modal_section_box">
-                                    <div class="box inline_block">
-                                        <img class="Place" style="border-radius: 7px" src="강릉 선교장.jpg" />
-                                    </div>
-                                    <div class="box inline_block vertical_top">
-                                        <div class="youtube_area">
-                                            <div class="Text2_area">
-                                                <div class="Text2 ">장소소개</div>
-                                                <div class="Text2">스토리</div>
-                                                <div class="Text2">위치</div>
-                                            </div>
-                                            <div class="video-container">
-                                                <iframe src="https://www.youtube.com/embed/8eEmw5AjpAo?si=voaYkhGF51RyBasp" 
-                                                        title="YouTube video player" 
-                                                        frameborder="0" 
-                                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                                        referrerpolicy="strict-origin-when-cross-origin" 
-                                                        allowfullscreen>
-                                                </iframe>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="video-container">
+                                    <iframe src="https://www.youtube.com/embed/8eEmw5AjpAo?si=voaYkhGF51RyBasp"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                                    </iframe>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div id="myModal2" class="modal">
-                        <div class="modal-content">
-                            <span class="close" onclick="closeModal()">&times;</span> <!-- 모달을 닫는 닫기 버튼입니다. -->
-                            <p>이곳에 모달 내용을 추가하세요.</p> <!-- 모달 창에 표시될 내용입니다. -->
-                            
-                        </div>
-                    </div>
-                </section>
+                </div>
             </div>
-            <aside class="aside"></aside>
-        </div>
-        <footer class="footer"></footer>  
+            <div id="myModal2" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span> <!-- 모달을 닫는 닫기 버튼입니다. -->
+                    <p>이곳에 모달 내용을 추가하세요.</p> <!-- 모달 창에 표시될 내용입니다. -->
+                </div>
+            </div>
+        </section>
     </div>
-</div>
+    <footer class="footer"></footer>
 
+    <script>
+        // 모달 열기
+        function openModal1() {
+            document.getElementById("myModal1").style.display = "block"; /* 모달 창을 보이게 합니다. */
+        }
 
-<script>
-// 모달 열기
-function openModal1() {
-    document.getElementById("myModal1").style.display = "block"; /* 모달 창을 보이게 합니다. */
-}
-
-// 모달 닫기
-function closeModal1() {
-    document.getElementById("myModal1").style.display = "none"; /* 모달 창을 숨깁니다. */
-}
-</script>
+        // 모달 닫기
+        function closeModal1() {
+            document.getElementById("myModal1").style.display = "none"; /* 모달 창을 숨깁니다. */
+        }
+    </script>
 </body>
+
 </html>
