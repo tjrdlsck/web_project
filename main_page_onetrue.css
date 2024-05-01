@@ -1,0 +1,209 @@
+/* 노말라이즈 */
+*{
+    margin: 0;
+    padding: 0;
+}
+/* 색상 지정 시작 */
+.bg_red{
+    box-shadow: 0 0 0 4px red inset;
+}
+.bg_blue{
+    box-shadow: 0 0 0 4px blue inset;
+}
+.bg_green{
+    box-shadow: 0 0 0 4px green inset;
+}
+.bg_gradient{
+    background: linear-gradient(117deg, #B92B27 0%, #1565C0 99%);
+}
+/* 색상 지정 끝 */
+/* 도구 지정 시작 */
+.flex{
+    display: flex;
+}
+.flex-js-c{
+    justify-content: center;
+}
+.flex-ali-c{
+    align-items: center;
+}
+.heigth-100p{
+    height: 100%;
+}
+.text-al-c{
+    text-align: center;
+}
+/* 도구 지정 끝 */
+/* 레이아웃 */
+.container{
+    max-width: 1340px;
+    width: 80vw;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 8px;
+}
+.section{
+    width: 100%;
+    text-align: center;
+}
+.footer{
+    padding: 10vh;
+}
+.header{
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+}
+.nav,.footer{
+    color: rgba(0,0,0,0);
+}
+/* 레이아웃 기본값 끝*/
+/* 제목 */
+.MoviePlace{
+    width: 100%;
+    height: 100%;
+    display: inline;
+    text-align: center; 
+    color: white;
+    font-size: clamp(44px, 5vw, 100px);
+    font-family: Inter;
+    font-weight: 900;
+}
+/* 제목 끝*/
+/* 영화 박스 세팅 */
+img.photo {
+    display: inline-block;
+    width: 13.5vw;
+    min-width: 200px;
+    object-fit: cover;/* 정해둔 크기에 사진을 비율을 유지해서 맞춰줌*/
+}
+.photo {
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 40px;
+}
+.photo_box {
+    text-align: center;
+}
+/* 영화 박스 세팅 끝*/
+/* 모달 스타일 */
+.modal {
+    display: none;  /*모달은 처음에 숨겨져 있어야 합니다. */
+    position: fixed; /* 화면에 고정됩니다. */
+    z-index: 1; /* 다른 요소들 보다 위에 표시됩니다. */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+     /* 배경색은 반투명 검정색입니다. background-color: rgba(0,0,0,0.3);*/
+    background: linear-gradient(117deg, #B92B27 0%, #1565C0 99%);
+}
+
+/* 모달 내부 창 스타일 */
+.modal-content {
+    background-color: rgba(255, 255, 255, 0.2); /* 내부 창의 배경색은 흰색입니다. */
+    margin: 7.5vh auto; /* 위아래 중앙 정렬합니다. */
+    padding: 0 3vw; /* 내부 여백을 추가합니다. */
+    padding-bottom: 3vh;
+    border: 1px solid #888; /* 테두리를 추가합니다. */
+    border-radius: 10px;
+    width: 80vw;
+    /*max-width: 700px;*/
+    height: 80vh;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); /* 그림자 효과를 추가합니다. */
+    -webkit-animation-name: animatetop; /* 모달 창이 위로 올라오는 애니메이션을 적용합니다. */
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* 닫기 버튼 스타일 */
+.close {
+    color: #ffffff; /* 닫기 버튼 색상은 회색입니다. */
+    float: right; /* 오른쪽으로 정렬합니다. */
+    font-size: clamp(25px, 2vw, 40px); /* 글자 크기를 지정합니다. */
+    font-weight: bold; /* 글자를 굵게 표시합니다. */
+    margin-right: 5px;
+    margin-top: 1.5%;
+}
+
+.close:hover,
+.close:focus {
+    color: #000; /* 마우스를 갖다 대거나 포커스 되었을 때 색상이 검은색으로 변경됩니다. */
+    text-decoration: none; /* 밑줄이 제거됩니다. */
+    cursor: pointer; /* 마우스 커서를 손가락 모양으로 변경합니다. */
+}
+
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} /* 시작 지점입니다. 위로 300px 이동하고 투명도가 0입니다. */
+    to {top:0; opacity:1} /* 끝 지점입니다. 화면 상단으로 이동하고 투명도가 1이 됩니다. */
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+/* 모달 내부 창 스타일 끝 */
+/* 모달 내부 내용 시작 */
+.modal_box{
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.modal_box::-webkit-scrollbar {
+    display: none;
+  }
+.container_modal{
+    max-width: 1340px;
+    width: 80vw;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.Place{
+    width: 40%;
+    float: left;
+}
+.modal_title{
+    font-size: clamp(30px, 5vw, 70px);
+    font-style: 900;
+    color: rgb(255, 255, 255); 
+    font-family: Inter; 
+    font-weight: 900;
+    margin: 1.5% 0;
+    margin-top: 2.5%;
+}
+.modal_nav{
+    color: rgb(255, 255, 255); 
+    font-size: clamp(17px, 2vw, 34px); 
+    font-family: Inter; 
+    font-weight: 900;
+    float: left;
+    padding: 10px 5px;
+}
+/* 유튜브 영상을 감싸는 컨테이너의 스타일 */
+.video-container {
+    position: relative; /* 자식 요소를 포함하기 위해 position 속성을 설정합니다. */
+    width: 100%; /* 부모 요소의 너비를 기준으로 합니다. */
+    padding-bottom: 56.25%; /* 16:9 비율을 유지하기 위해 사용됩니다. */
+    overflow: hidden; /* 영상의 내용이 넘치지 않도록 설정합니다. */
+}
+
+/* 유튜브 영상의 스타일 */
+.video-container iframe {
+    position: absolute; /* 상대적 위치 설정 */
+    top: 0; /* 부모 요소의 맨 위에 배치 */
+    left: 0; /* 부모 요소의 맨 왼쪽에 배치 */
+    width: 100%; /* 부모 요소의 너비를 가득 채우도록 설정 */
+    height: 100%; /* 부모 요소의 높이를 가득 채우도록 설정 */
+    border-radius: 10px;
+}
+.youtube_area{
+    width: 45vw;
+    /* min-width: 270px; */
+    max-width: 800px;
+    float: right;
+}
+
+/* 모달 내부 내용 끝 */
