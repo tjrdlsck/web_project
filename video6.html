@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 유튜브 영상을 감싸는 컨테이너의 스타일 */
+        .video-container {
+            position: relative;
+            /* 자식 요소를 포함하기 위해 position 속성을 설정합니다. */
+            width: 100%;
+            /* 부모 요소의 너비를 기준으로 합니다. */
+            /* 16:9 비율을 유지하기 위해 사용됩니다. */
+            padding-bottom: 52.9%;
+            overflow: hidden;
+            /* 영상의 내용이 넘치지 않도록 설정합니다. */
+        }
+
+        /* 유튜브 영상의 스타일 */
+        .video-container iframe {
+            position: absolute;
+            /* 상대적 위치 설정 */
+            top: 0;
+            /* 부모 요소의 맨 위에 배치 */
+            left: 0;
+            /* 부모 요소의 맨 왼쪽에 배치 */
+            width: 100%;
+            /* 부모 요소의 너비를 가득 채우도록 설정 */
+            height: 100%;
+            /* 부모 요소의 높이를 가득 채우도록 설정 */
+
+        }
+
+        .youtube_area {
+            width: 45vw;
+            /* min-width: 270px; */
+            max-width: 748px;
+            float: right;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="v-content video-container">
+        <iframe src="https://www.youtube.com/embed/M3BLqc2IkU8?si=U1rCgD_UQ7pKb_-S" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+
+</html>
