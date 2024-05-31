@@ -1,0 +1,408 @@
+/* 노말라이즈 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 색상 지정 시작 */
+.bg_red {
+    box-shadow: 0 0 0 4px red inset;
+}
+
+.bg_blue {
+    box-shadow: 0 0 0 4px blue inset;
+}
+
+.bg_green {
+    box-shadow: 0 0 0 4px green inset;
+}
+
+.bg_gradient {
+    background: linear-gradient(117deg, #B92B27 0%, #1565C0 99%);
+}
+
+/* 색상 지정 끝 */
+/* 도구 지정 시작 */
+.flex {
+    display: flex;
+}
+
+.flex-js-c {
+    justify-content: center;
+}
+
+.flex-ali-c {
+    align-items: center;
+}
+
+.heigth-100p {
+    height: 100%;
+}
+
+.text-al-c {
+    text-align: center;
+}
+
+/* 도구 지정 끝 */
+/* 레이아웃 */
+.container {
+    max-width: 1340px;
+    width: 80vw;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 8px;
+}
+
+.section {
+    width: 100%;
+    text-align: center;
+}
+
+.footer {
+    padding: 10vh;
+}
+
+.header {
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+}
+
+.nav,
+.footer {
+    color: rgba(0, 0, 0, 0);
+}
+
+/* 레이아웃 기본값 끝*/
+
+/* 영화 박스 세팅 */
+img.photo {
+    display: inline-block;
+    width: 13.5vw;
+    min-width: 200px;
+    max-width: 257px;
+    object-fit: cover;
+    /* 정해둔 크기에 사진을 비율을 유지해서 맞춰줌*/
+}
+
+.photo {
+    border-radius: 10px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 40px;
+}
+
+.photo_box {
+    text-align: center;
+}
+
+/* 영화 박스 세팅 끝*/
+/* 모달 스타일 */
+.modal {
+    display: none;
+    /*모달은 처음에 숨겨져 있어야 합니다. */
+    /* 화면에 고정됩니다. */
+    position: fixed;
+    z-index: 1;
+    /* 다른 요소들 보다 위에 표시됩니다. */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* 배경색은 반투명 검정색입니다. background-color: rgba(0,0,0,0.3);*/
+    /* background: linear-gradient(117deg, #B92B27 0%, #1565C0 99%); */
+    background: #000000b8;
+
+}
+
+/* 모달 내부 창 스타일 */
+.modal-content {
+    /* 내부 창의 배경색은 흰색입니다. */
+    background-color: rgb(24, 24, 24);
+    margin: 0 auto;
+    margin-top: 2%;
+    /* 위아래 중앙 정렬합니다. */
+    /* padding: 0 3vw;  */
+    /* 내부 여백을 추가합니다. */
+    /* padding-bottom: 3vh; */
+
+    /* 테두리를 추가합니다. */
+    border-radius: 10px;
+    width: 60vw;
+    /*max-width: 700px;*/
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* 그림자 효과를 추가합니다. */
+    -webkit-animation-name: animatetop;
+    /* 모달 창이 위로 올라오는 애니메이션을 적용합니다. */
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+/* 닫기 버튼 스타일 */
+.close {
+    color: #ffffff;
+    /* 닫기 버튼 색상은 회색입니다. */
+    position: absolute;
+    left: 95%;
+    font-size: clamp(14px, 2vw, 40px);
+    /* 글자 크기를 지정합니다. */
+    font-weight: bold;
+    /* 글자를 굵게 표시합니다. */
+    margin-right: 5px;
+    margin-top: 1.5%;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    /* 마우스를 갖다 대거나 포커스 되었을 때 색상이 검은색으로 변경됩니다. */
+    text-decoration: none;
+    /* 밑줄이 제거됩니다. */
+    cursor: pointer;
+    /* 마우스 커서를 손가락 모양으로 변경합니다. */
+}
+
+@-webkit-keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    /* 시작 지점입니다. 위로 300px 이동하고 투명도가 0입니다. */
+    to {
+        top: 0;
+        opacity: 1
+    }
+
+    /* 끝 지점입니다. 화면 상단으로 이동하고 투명도가 1이 됩니다. */
+}
+
+@keyframes animatetop {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+/* 모달 내부 창 스타일 끝 */
+/* 모달 내부 내용 시작 */
+.modal_box {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.modal_box::-webkit-scrollbar {
+    display: none;
+}
+
+.container_modal {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.Place {
+    width: 40%;
+    float: left;
+}
+
+/* 이미지 슬라이더 시작 */
+.slider {
+    position: relative;
+    width: 40%;
+    float: left;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+    border-radius: 7px;
+}
+
+
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 12px;
+    user-select: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+button.prev {
+    left: 10px;
+}
+
+button.next {
+    right: 10px;
+}
+
+/* 이미지 슬라이더 끝 */
+.modal_title {
+    font-size: clamp(12px, 3vw, 35px);
+    font-style: 900;
+    color: rgb(255, 255, 255);
+    font-family: Inter;
+    font-weight: 900;
+}
+
+.modal_nav {
+    color: rgb(255, 255, 255);
+    font-size: clamp(17px, 2vw, 24px);
+    font-family: Inter;
+    font-weight: 900;
+    float: left;
+    /* 반응형 */
+    padding: 10px 5px;
+    padding-right: 15px;
+    cursor: pointer;
+    padding-bottom: 12%;
+}
+
+/* 유튜브 영상을 감싸는 컨테이너의 스타일 */
+.video-container {
+    position: relative;
+    /* 자식 요소를 포함하기 위해 position 속성을 설정합니다. */
+    width: 100%;
+    /* 부모 요소의 너비를 기준으로 합니다. */
+    /* 16:9 비율을 유지하기 위해 사용됩니다. */
+    overflow: hidden;
+    /* 영상의 내용이 넘치지 않도록 설정합니다. */
+}
+
+.video-container {
+    display: none;
+}
+
+
+.youtube_area {
+    width: 45vw;
+    /* min-width: 270px; */
+    max-width: 748px;
+    float: right;
+}
+
+.modal-content-place {
+    color: rgb(255, 255, 255);
+    font-size: clamp(17px, 2vw, 23px);
+    font-family: Inter;
+    font-weight: 900;
+    padding: 20px 0px;
+}
+
+#modalMenusContent1 {
+    display: block;
+}
+
+#modal_nav1 {
+    display: block;
+}
+
+.word {
+    display: block;
+    color: rgb(255, 255, 255);
+    margin: 1% 0;
+    padding-left: 1%;
+    width: 55%;
+    font-size: clamp(18px, 3vw, 23px);
+    font-weight: bolder !important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.2;
+    /*height: 4.8em;*/
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.word_content {
+    display: block;
+    color: rgb(255, 255, 255);
+    margin: 4% 0;
+    padding-left: 1%;
+    width: 55%;
+    font-size: clamp(8px, 6vw, 14px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    line-height: 1.2;
+    /*height: 4.8em;*/
+    text-align: left;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.v-content {
+    display: none;
+}
+
+/* 모달 내부 내용 끝 */
+.main_img_slider {
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.main_text {
+    position: absolute;
+    top: 3%;
+    left: 3%;
+}
+
+/* 제목 */
+.MoviePlace {
+    color: white;
+    font-size: clamp(25px, 5vw, 40px);
+    font-family: Inter;
+    font-weight: 900;
+}
+
+/* 제목 끝*/
+@font-face {
+    font-family: 'Dokrip';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Dokrip.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.main_grad {
+    height: 107vh;
+    position: absolute;
+    top: 0;
+}

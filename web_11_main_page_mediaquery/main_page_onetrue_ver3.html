@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main_page_onetrue.css">
+    <link rel="stylesheet" href="main_page_modal_size.css" />
+    <script>
+        // 이벤트를 연결합니다. 
+        window.onload = function () {
+            // 문서 객체를 선택합니다.
+            let clock = document.getElementById('clock');
+
+            // 1초마다 함수를 실행합니다.
+            setInterval(function () {
+                let date = new Date();
+                let yyyy = date.getFullYear();
+                let mm = date.getMonth() + 1;
+                let dd = date.getDate();
+
+                if (mm < 10)
+                    mm = "0" + mm;
+                if (dd < 10)
+                    dd = "0" + dd;
+
+                let now = "날짜 : " + yyyy + "" + mm + "" + dd;
+                clock.innerHTML = now;
+            }, 1000);
+        };
+    </script>
+</head>
+
+<body style="background-color: rgb(24, 24, 24);">
+    <div class="slider" style="width: 100%;">
+        <div class="slides" id="slides1">
+            <div class="slide main_img_slider">
+                <div style="position: relative;">
+                    <img src="태극기 휘날리며.jpeg" alt="">
+                    <div
+                        style="color: white; position: absolute; font-size: clamp(12px, 30vw, 60px); top:55%; left: 10%; font-family: 'Dokrip'; font-weight: 900;" class="btn-title">
+                        태극기 휘날리며
+                    </div>
+                    <div class="main_grad" style="position: absolute; top: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 3.71684350132626%,rgba(24, 24, 24, 0.1) 13.404757957559683%,rgba(24, 24, 24, 0.2) 25.185261936339522%,rgba(24, 24, 24, 0.2) 34.48565981432361%,rgba(24, 24, 24, 0.2) 43.476044429708224%,rgba(24, 24, 24, 0.2) 51.84640251989391%,rgba(24, 24, 24, 0.3) 60.061753978779855%,rgba(31, 31, 31,0.3) 67.19205901856765%,rgba(24, 24, 24,0.98) 95.12002652519894%);">
+                    </div>
+                    <a href="video1.html" target="_blank" style="padding: 0.8% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px); top:70%; left: 10%; font-weight: 400;" class="btn-story">
+                        <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                        스토리
+                    </a>
+                    <div style="padding: 0.98% 1.2%; color: white; position: absolute; border-radius: 3px; background: rgba(105, 105, 105, 0.646); font-size: clamp(10px, 2vw, 18px); top:70%; left: 19%; font-weight: 400;" class="btn-content" onclick="openModal1()">
+                        자세히 보기
+                    </div>
+                </div>
+            </div>
+            <div class="slide main_img_slider">
+                <div style="position: relative;">
+                    <img src="동주.jpeg" alt="">
+                    <div
+                        style="color: white; position: absolute; font-size: clamp(20px, 3vw, 60px); top:55%; left: 10%; font-family: 'Dokrip'; font-weight: 900;">
+                        동주
+                    </div>
+                    <div class="main_grad"
+                        style="position: absolute; top: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 3.71684350132626%,rgba(24, 24, 24, 0.1) 13.404757957559683%,rgba(24, 24, 24, 0.2) 25.185261936339522%,rgba(24, 24, 24, 0.2) 34.48565981432361%,rgba(24, 24, 24, 0.2) 43.476044429708224%,rgba(24, 24, 24, 0.2) 51.84640251989391%,rgba(24, 24, 24, 0.3) 60.061753978779855%,rgba(31, 31, 31,0.3) 67.19205901856765%,rgba(24, 24, 24,0.98) 95.12002652519894%);">
+                    </div>
+                    <a href="video5.html" target="_blank"
+                        style="padding: 1% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px); top:70%; left: 10%; font-weight: 400;" class="btn-story">
+                        <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                        스토리
+                    </a>
+                    <div style="padding: 1.1% 1.2%; color: white; position: absolute; border-radius: 3px; background: rgba(105, 105, 105, 0.646); font-size: clamp(10px, 2vw, 18px); top:70%; left: 19%; font-weight: 400;" class="btn-content"
+                        onclick="openModal5()">
+                        자세히 보기
+                    </div>
+                </div>
+            </div>
+            <div class="slide main_img_slider">
+                <div style="position: relative;">
+                    <img src="광해.jpeg" alt="">
+                    <div
+                        style="color: white; position: absolute; font-size: clamp(44px, 10vw, 60px); top:55%; left: 10%; font-family: 'Dokrip'; font-weight: 900;" class="btn-title">
+                        광해
+                    </div>
+                    <div class="main_grad"
+                        style="position: absolute; top: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 3.71684350132626%,rgba(24, 24, 24, 0.1) 13.404757957559683%,rgba(24, 24, 24, 0.2) 25.185261936339522%,rgba(24, 24, 24, 0.2) 34.48565981432361%,rgba(24, 24, 24, 0.2) 43.476044429708224%,rgba(24, 24, 24, 0.2) 51.84640251989391%,rgba(24, 24, 24, 0.3) 60.061753978779855%,rgba(31, 31, 31,0.3) 67.19205901856765%,rgba(24, 24, 24,0.98) 95.12002652519894%);">
+                    </div>
+                    <a href="video7.html" target="_blank"
+                        style="padding: 1% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px); top:70%; left: 10%; font-weight: 400;" class="btn-story">
+                        <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                        스토리
+                    </a>
+                    <div style="padding: 1.1% 1.2%; color: white; position: absolute; border-radius: 3px; background: rgba(105, 105, 105, 0.646); font-size: clamp(10px, 2vw, 18px); top:70%; left: 19%; font-weight: 400;" class="btn-content"
+                        onclick="openModal7()">
+                        자세히 보기
+                    </div>
+                </div>
+            </div>
+            <div class="slide main_img_slider">
+                <div style="position: relative;">
+                    <img src="관상.jpeg" alt="">
+                    <div
+                        style="color: white; position: absolute; font-size: clamp(44px, 10vw, 60px); top:55%; left: 10%; font-family: 'Dokrip'; font-weight: 900;">
+                        관상
+                    </div>
+                    <div class="main_grad"
+                        style="position: absolute; top: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(0, 0, 0, 0.1) 3.71684350132626%,rgba(24, 24, 24, 0.1) 13.404757957559683%,rgba(24, 24, 24, 0.2) 25.185261936339522%,rgba(24, 24, 24, 0.2) 34.48565981432361%,rgba(24, 24, 24, 0.2) 43.476044429708224%,rgba(24, 24, 24, 0.2) 51.84640251989391%,rgba(24, 24, 24, 0.3) 60.061753978779855%,rgba(31, 31, 31,0.3) 67.19205901856765%,rgba(24, 24, 24,0.98) 95.12002652519894%);">
+                    </div>
+                    <a href="video8.html" target="_blank" class="btn-story"
+                        style="padding: 1% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px); top:70%; left: 10%; font-weight: 400;" class="btn-story">
+                        <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                        스토리
+                    </a>
+                    <div style="padding: 1.1% 1.2%; color: white; position: absolute; border-radius: 3px; background: rgba(105, 105, 105, 0.646); font-size: clamp(10px, 2vw, 18px); top:70%; left: 19%; font-weight: 400;" class="btn-content"
+                        onclick="openModal8()">
+                        자세히 보기
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="MoviePlace main_text">Movie Place</div>
+        <button class="prev">&lt;</button>
+        <button class="next">&gt;</button>
+    </div>
+    <div style="overflow: hidden; margin: 0 auto; width: 100%; border: red; height: 3vh;"></div>
+
+    <div class="container">
+        <section class="section"><!-- 메인화면 포스터 -->
+            <img src="./포스터/태극기.jpeg" alt="팝업이미지" class="photo1 photo" onclick="openModal1()">
+            <img src="./포스터/킹덤.jpeg" alt="팝업이미지" class="photo2 photo" onclick="openModal2()">
+            <img src="./포스터/파묘.jpg" alt="팝업이미지" class="photo3 photo" onclick="openModal3()">
+            <img src="./포스터/리틀포레스트.jpeg" alt="팝업이미지" class="photo4 photo" onclick="openModal4()">
+            <img src="./포스터/동주.jpeg" alt="팝업이미지" class="photo5 photo" onclick="openModal5()">
+            <img src="./포스터/늑대소년.jpeg" alt="팝업이미지" class="photo6 photo" onclick="openModal6()">
+            <img src="./포스터/광해.jpeg" alt="팝업이미지" class="photo7 photo" onclick="openModal7()">
+            <img src="./포스터/관상.jpeg" alt="팝업이미지" class="photo8 photo" onclick="openModal8()">
+            <!-- 모달 1 -->
+            <div id="myModal1" class="modal">
+                <div class="modal-content">
+                    <div class="modal_box">
+                        <div class="container_modal" style="position: relative;">
+                            <span class="close" onclick="closeModal('myModal1')">&times;</span>
+                            <img src="태극기 휘날리며.jpeg" width="100%" style="border-radius: 10px;" alt="태극기 휘날리며">
+                            <div class="modal_title" style="position: absolute; top:50%; left: 10%;">태극기 휘날리며</div>
+                            <div class="modal_title">
+                                <a href="video1.html" target="_blank"
+                                    style="padding: 1% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px);; top:60%; left: 10%; font-weight: 400;">
+                                    <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                                    스토리
+                                </a>
+                            </div>
+                            <div
+                                style="position: absolute; width: 100%; height: 19%; top:81%; background: linear-gradient(to bottom, rgba(0, 79, 255, 0), rgba(24, 24, 24, 0.19), rgba(24, 24, 24, 0.43), rgba(24, 24, 24, 0.66), rgba(24, 24, 24, 1));">
+                            </div>
+                            <!-- 제목 수정해야합니다 -->
+                        </div>
+                        <div class="container_modal" style="padding-left: 5%;">
+                            <div class="modal_title"
+                                style="float: left; text-align: left; width:60%; font-size: clamp(10px, 2vw, 16px);; font-weight: 400;">
+                                1950년대 한국 전쟁이 일어난다. 진태는 동생 진석을 전쟁의 위험으로부터 지키기 위해 자신이 전쟁의 한가운데에 서기를 자처한다.</div>
+                            <div style="float: left; width: 40%;">
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    개봉 : 2004.02.05</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    등급 : 15세 이상 관람가</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    장르 : 전쟁, 드라마, 액션</div>
+                            </div>
+                        </div>
+                        <div class="container_modal" style="text-align: left; padding-left: 5%;">
+                            <div class="container_modal_nav" style="display: inline-block;">
+                                <div class="modal_nav" id="modal_nav1_1"
+                                    onclick="modalMenuClick('modal_nav1_1', 'modalMenusContent1_1')">장소</div>
+                                <div class="modal_nav" id="modal_nav1_2"
+                                    onclick="modalMenuClick('modal_nav1_2', 'modalMenusContent1_2')">위치</div>
+                            </div>
+                        </div>
+                        <div class="container_modal">
+                            <div class="v-content" style="width: 100%; display: none;" id="modalMenusContent1_1">
+                                <div style="width: 100%; padding: 2%;">
+                                    <div class="slider">
+                                        <div class="slides" id="slides1">
+                                            <div class="slide">
+                                                <img src="./영화 장소/황매산1.jpg"
+                                                    alt="Image 1"><!-- 장소 사진 수정 alt 부분은 수정하지 않으셔도 됩니다.-->
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/황매산2.jpg" alt="Image 2">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/황매산3.jpg" alt="Image 3">
+                                            </div>
+                                        </div>
+                                        <button class="prev">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                    <div style="color: white; padding-top: 3%; padding-bottom: 1%;">
+                                        <div class="modal-content-text word">
+                                            황매산
+                                        </div>
+                                        <div class="modal-content-text word_content">
+                                            드넓은 평야와 총알이 날아다니는 전쟁터 속에서 서로를 향해 울부짖던 두 형제가 나온 장면이 바로 합천 황매산이다.
+                                            태백산맥의 마지막 준봉인 황매산은 황매봉을 중심으로 동남쪽을 뻗은 기암절벽이 형성되어 있어 작은 금강산이라 불릴만큼 아름답다.
+                                            <!-- 장소 소개 글을 넣는 곳입니다. -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="v-content video-container" style="padding-bottom: 3%;"
+                                id="modalMenusContent1_2">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d51973.42355612251!2d127.93324435796427!3d35.49589562926294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356fa760be178aef%3A0x7549df90ae36f9c3!2z7Zmp66ek7IKw!5e0!3m2!1sko!2skr!4v1716726280157!5m2!1sko!2skr"
+                                    width="90%" height="450" style="border:0; border-radius: 5px;" allowfullscreen=""
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe><!-- 지도를 넣는 곳입니다. 구글맵에서 공유 눌러서 html코드로 가져오시면 됩니다. -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 모달 2 -->
+            <div id="myModal2" class="modal">
+                <div class="modal-content">
+                    <div class="modal_box">
+                        <div class="container_modal" style="position: relative;">
+                            <span class="close" onclick="closeModal('myModal2')">&times;</span>
+                            <img src="킹덤.jpg" width="100%" style="border-radius: 10px;" alt="킹덤">
+                            <div class="modal_title" style="position: absolute; top:50%; left: 10%;">킹덤</div>
+                            <div class="modal_title">
+                                <a href="video2.html" target="_blank"
+                                    style="padding: 1% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px);; top:60%; left: 10%; font-weight: 400;">
+                                    <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                                    스토리
+                                </a>
+                            </div>
+                            <div
+                                style="position: absolute; width: 100%; height: 19%; top:81%; background: linear-gradient(to bottom, rgba(0, 79, 255, 0), rgba(24, 24, 24, 0.19), rgba(24, 24, 24, 0.43), rgba(24, 24, 24, 0.66), rgba(24, 24, 24, 1));">
+                            </div>
+                            <!-- 제목 수정해야합니다 -->
+                        </div>
+                        <div class="container_modal" style="padding-left: 5%;">
+                            <div class="modal_title"
+                                style="float: left; text-align: left; width:60%; font-size: clamp(10px, 2vw, 16px);; font-weight: 400;">
+                                병든 왕을 둘러싸고 흉흉한 소문이 떠돈다. 어둠에 뒤덮인 조선, 기이한 역병에 신음하는 산하. 정체 모를 악에 맞서 백성을 구원할 희망은 오직 세자뿐이다.
+                            </div>
+                            <div style="float: left; width: 40%;">
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    개봉 : 2019.01.25</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    등급 : 19세 이상 관람가</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    장르 : 정치, 드라마, 액션</div>
+                            </div>
+                        </div>
+                        <div class="container_modal" style="text-align: left; padding-left: 5%;">
+                            <div class="container_modal_nav" style="display: inline-block;">
+                                <div class="modal_nav" id="modal_nav2_1"
+                                    onclick="modalMenuClick('modal_nav2_1', 'modalMenusContent2_1')">장소</div>
+                                <div class="modal_nav" id="modal_nav2_2"
+                                    onclick="modalMenuClick('modal_nav2_2', 'modalMenusContent2_2')">위치</div>
+                            </div>
+                        </div>
+                        <div class="container_modal">
+                            <div class="v-content" style="width: 100%; display: none;" id="modalMenusContent2_1">
+                                <div style="width: 100%; padding: 2%;">
+                                    <div class="slider">
+                                        <div class="slides" id="slides2">
+                                            <div class="slide">
+                                                <img src="./영화 장소/인제 자작나무 숲1.jpg" alt="Image 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/인제 자작나무 숲2.jpg" alt="Image 2">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/인제 자작나무 숲3.jpg" alt="Image 3">
+                                            </div>
+                                        </div>
+                                        <button class="prev">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                    <div style="color: white; padding-top: 3%; padding-bottom: 1%;">
+                                        <div class="modal-content-text word">
+                                            원대리 자작나무 숲
+                                        </div>
+                                        <div class="modal-content-text word_content">
+                                            인제읍 인근의 자연 생태관광지인 원대리 자작나무 숲은 1974년부터 1995년까지 138ha 크기로
+                                            만들어졌으며, 현재는 그중 25ha를 유아 숲 체험 원으로 운영하고 있다.
+                                            산허리를 따라 부드럽게 이어진 길은 남녀노소 모두 별 무리 없이 걸을 수 있는 길이다.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 100%; padding: 2%;">
+                                    <div class="slider">
+                                        <div class="slides" id="slides2">
+                                            <div class="slide">
+                                                <img src="영화 장소/포항 내연산 12폭포3.png" alt="Image 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="영화 장소/포항 내연산폭포.jpg" alt="Image 2">
+                                            </div>
+                                        </div>
+                                        <button class="prev">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                    <div style="color: white; padding-top: 3%; padding-bottom: 1%;">
+                                        <div class="modal-content-text word">
+                                            포항 내연산 12폭포
+                                        </div>
+                                        <div class="modal-content-text word_content">
+                                            포항의 대표적인 명소로 신라 천년 고찰인 보경사와 청하계곡으로 따라 아름다운 12개의 폭포가 있어 사계절 내내 많은 사람들이 찾는다.
+                                            청하계곡을 따라 12개의 폭포가 각기 다른 모습으로 등산객을 맞는다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="v-content" id="modalMenusContent2_2">
+                                <div class="slider"
+                                    style="padding-bottom: 3%; left: 5%; width: 90%; border-radius: 5px; overflow: hidden;">
+                                    <div class="slides" id="slides2">
+                                        <div class="slide" style="height: 450px;">
+                                            <iframe
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25150.02574747242!2d128.2165341!3d38.0062163!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35626e1bffa099fb%3A0xfafa82bed86284b9!2z6rCV7JuQ64-EIOyduOygnOq1sCDsnbjsoJzsnY0g7J6Q7J6R64KY66y07Iiy6ri4!5e0!3m2!1sko!2skr!4v1716726780225!5m2!1sko!2skr"
+                                                width="100%" height="450" style="border:0; border-radius: 5px;"
+                                                allowfullscreen="" loading="lazy"
+                                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        </div>
+                                        <div class="slide" style="height: 450px;">
+                                            <iframe
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3217.446766157831!2d129.30884707574418!3d36.2529309724082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3566e022a18f7c2d%3A0x553bb8654d55e587!2z64K07Jew7IKwIDEy7Y-t7Y-s!5e0!3m2!1sko!2skr!4v1717160951325!5m2!1sko!2skr"
+                                                width="100%" height="450" style="border:0; border-radius: 5px;"
+                                                allowfullscreen="" loading="lazy"
+                                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        </div>
+                                    </div>
+                                    <button class="prev">&lt;</button>
+                                    <button class="next">&gt;</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 모달 3 -->
+            <div id="myModal3" class="modal">
+                <div class="modal-content">
+                    <div class="modal_box">
+                        <div class="container_modal" style="position: relative;">
+                            <span class="close" onclick="closeModal('myModal3')">&times;</span>
+                            <img src="파묘.jpeg" width="100%" style="border-radius: 10px;" alt="파묘">
+                            <div class="modal_title" style="position: absolute; top:50%; left: 10%;">파묘</div>
+                            <div class="modal_title">
+                                <a href="video3.html" target="_blank"
+                                    style="padding: 1% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px);; top:60%; left: 10%; font-weight: 400;">
+                                    <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                                    스토리
+                                </a>
+                            </div>
+                            <div
+                                style="position: absolute; width: 100%; height: 19%; top:81%; background: linear-gradient(to bottom, rgba(0, 79, 255, 0), rgba(24, 24, 24, 0.19), rgba(24, 24, 24, 0.43), rgba(24, 24, 24, 0.66), rgba(24, 24, 24, 1));">
+                            </div>
+                            <!-- 제목 수정해야합니다 -->
+                        </div>
+                        <div class="container_modal" style="padding-left: 5%;">
+                            <div class="modal_title"
+                                style="float: left; text-align: left; width:60%; font-size: clamp(10px, 2vw, 16px);; font-weight: 400;">
+                                절대 사람이 묻힐 수 없는 악지에 자리한 기이한 묘. ‘상덕’은 불길한 기운을 느끼고 제안을 거절하지만, ‘화림’의 설득으로 결국 리틀포레스트가 시작되고…
+                                나와서는
+                                안될 것이 나왔다.
+                            </div>
+                            <div style="float: left; width: 40%;">
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    개봉 : 2024.02.22</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    등급 : 15세 이상 관람가</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    장르 : 미스터리/스릴러</div>
+                            </div>
+                        </div>
+                        <div class="container_modal" style="text-align: left; padding-left: 5%;">
+                            <div class="container_modal_nav" style="display: inline-block;">
+                                <div class="modal_nav" id="modal_nav3_1"
+                                    onclick="modalMenuClick('modal_nav3_1', 'modalMenusContent3_1')">장소</div>
+                                <div class="modal_nav" id="modal_nav3_2"
+                                    onclick="modalMenuClick('modal_nav3_2', 'modalMenusContent3_2')">위치</div>
+                            </div>
+                        </div>
+                        <div class="container_modal">
+                            <div class="v-content" style="width: 100%; display: none;" id="modalMenusContent3_1">
+                                <div style="width: 100%; padding: 2%;">
+                                    <div class="slider">
+                                        <div class="slides" id="slides3">
+                                            <div class="slide">
+                                                <img src="./영화 장소/안동 하회마을1.jpg" alt="Image 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/안동 하회마을2.jpg" alt="Image 2">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/안동 하회마을3.jpg" alt="Image 3">
+                                            </div>
+                                        </div>
+                                        <button class="prev">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                    <div style="color: white; padding-top: 3%; padding-bottom: 1%;">
+                                        <div class="modal-content-text word">
+                                            안동하회마을
+                                        </div>
+                                        <div class="modal-content-text word_content">
+                                            안동하회마을은 풍산류씨가 600여 년간 대대로 살아온 한국의 대표적인 동성마을이며 기와집과 초가가 오랜 역사 속에서도 잘 보존 된
+                                            곳이다. 마을 이름을 하회라 한 것은 낙동강이 'S'자 모양으로 마을을 감싸 안고 흐르는 데서 유래했다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="v-content video-container" style="padding-bottom: 3%;"
+                                id="modalMenusContent3_2">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6411.260559206688!2d128.50862019357913!3d36.538913099999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x356422fee54b49ef%3A0xf09ce813c603eea2!2z7JWI64-ZIO2VmO2ajOuniOydhA!5e0!3m2!1sko!2skr!4v1716752879607!5m2!1sko!2skr"
+                                    width="90%" height="450" style="border:0; border-radius: 5px;" allowfullscreen=""
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 모달 4 -->
+            <div id="myModal4" class="modal">
+                <div class="modal-content">
+                    <div class="modal_box">
+                        <div class="container_modal" style="position: relative;">
+                            <span class="close" onclick="closeModal('myModal4')">&times;</span>
+                            <img src="리틀 포레스트.jpg" width="100%" style="border-radius: 10px;" alt="리틀포레스트">
+                            <div class="modal_title" style="position: absolute; top:50%; left: 10%;">리틀포레스트</div>
+                            <div class="modal_title">
+                                <a href="video4.html" target="_blank"
+                                    style="padding: 1% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px);; top:60%; left: 10%; font-weight: 400;">
+                                    <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                                    스토리
+                                </a>
+                            </div>
+                            <div
+                                style="position: absolute; width: 100%; height: 19%; top:81%; background: linear-gradient(to bottom, rgba(0, 79, 255, 0), rgba(24, 24, 24, 0.19), rgba(24, 24, 24, 0.43), rgba(24, 24, 24, 0.66), rgba(24, 24, 24, 1));">
+                            </div>
+                            <!-- 제목 수정해야합니다 -->
+                        </div>
+                        <div class="container_modal" style="padding-left: 5%;">
+                            <div class="modal_title"
+                                style="float: left; text-align: left; width:60%; font-size: clamp(10px, 2vw, 16px);; font-weight: 400;">
+                                서울에서 맘대로 되지 않는 삶에 힘겨워하던 혜원은 오랜만에 시골 고향으로 돌아와 휴식 같은 일상을 보내기로 마음 먹는다. 혜원은 오랜 친구와 함께 매 끼니를
+                                정성스레 만들어 먹으며 자신의 마음을 돌보는 사계절을 보낸다.
+                            </div>
+                            <div style="float: left; width: 40%;">
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    개봉 : 2018.02.28</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    등급 : 전체 관람가</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    장르 : 드라마</div>
+                            </div>
+                        </div>
+                        <div class="container_modal" style="text-align: left; padding-left: 5%;">
+                            <div class="container_modal_nav" style="display: inline-block;">
+                                <div class="modal_nav" id="modal_nav4_1"
+                                    onclick="modalMenuClick('modal_nav4_1', 'modalMenusContent4_1')">장소</div>
+                                <div class="modal_nav" id="modal_nav4_2"
+                                    onclick="modalMenuClick('modal_nav4_2', 'modalMenusContent4_2')">위치</div>
+                            </div>
+                        </div>
+                        <div class="container_modal">
+                            <div class="v-content" style="width: 100%; display: none;" id="modalMenusContent4_1">
+                                <div style="width: 100%; padding: 2%;">
+                                    <div class="slider">
+                                        <div class="slides" id="slides4">
+                                            <div class="slide">
+                                                <img src="./영화 장소/혜원의 집1.png" alt="Image 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/혜원의 집2.jpg" alt="Image 2">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/혜원의 집3.jpg" alt="Image 3">
+                                            </div>
+                                        </div>
+                                        <button class="prev">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                    <div style="color: white; padding-top: 3%; padding-bottom: 1%;">
+                                        <div class="modal-content-text word">
+                                            혜원의 집
+                                        </div>
+                                        <div class="modal-content-text word_content">
+                                            군위에 위치한 혜원의 집은 영화 리틀포레스트 촬영 후 그대로 보존되어 관광지가 되었다.
+                                            마을 담벼락에는 영화 속 장면을 그린 벽화 등 다양한 벽화가 그려져 있다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="v-content video-container" style="padding-bottom: 3%;"
+                                id="modalMenusContent4_2">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.4588190982577!2d128.66441739999996!3d36.17972179999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x35667fcc6ab320bf%3A0x1c510d98563c86fc!2z66as7YuAIO2PrOugiOyKpO2KuCDsmIHtmZQg7LSs7JiB7KeA!5e0!3m2!1sko!2skr!4v1716727057017!5m2!1sko!2skr"
+                                    width="90%" height="450" style="border:0; border-radius: 5px;" allowfullscreen=""
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 모달 5 -->
+            <div id="myModal5" class="modal">
+                <div class="modal-content">
+                    <div class="modal_box">
+                        <div class="container_modal" style="position: relative;">
+                            <span class="close" onclick="closeModal('myModal5')">&times;</span>
+                            <img src="동주.jpeg" width="100%" style="border-radius: 10px;" alt="동주">
+                            <div class="modal_title" style="position: absolute; top:50%; left: 10%;">동주</div>
+                            <div class="modal_title">
+                                <a href="video5.html" target="_blank"
+                                    style="padding: 1% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px);; top:60%; left: 10%; font-weight: 400;">
+                                    <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                                    스토리
+                                </a>
+                            </div>
+                            <div
+                                style="position: absolute; width: 100%; height: 19%; top:81%; background: linear-gradient(to bottom, rgba(0, 79, 255, 0), rgba(24, 24, 24, 0.19), rgba(24, 24, 24, 0.43), rgba(24, 24, 24, 0.66), rgba(24, 24, 24, 1));">
+                            </div>
+                            <!-- 제목 수정해야합니다 -->
+                        </div>
+                        <div class="container_modal" style="padding-left: 5%;">
+                            <div class="modal_title"
+                                style="float: left; text-align: left; width:60%; font-size: clamp(10px, 2vw, 16px);; font-weight: 400;">
+                                이름도, 언어도, 꿈도, 모든 것이 허락되지 않았던 일제강점기. 한 집에서 태어나고 자란 동갑내기 사촌지간 동주와 몽규. 어둠의 시대, 평생을 함께 한
+                                친구이자 영원한 라이벌이었던 윤동주와 송몽규의 끝나지 않은 이야기가 지금 시작된다.
+                            </div>
+                            <div style="float: left; width: 40%;">
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    개봉 : 2016.02.17</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    등급 : 12세 이상 관람가</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    장르 : 드라마</div>
+                            </div>
+                        </div>
+                        <div class="container_modal" style="text-align: left; padding-left: 5%;">
+                            <div class="container_modal_nav" style="display: inline-block;">
+                                <div class="modal_nav" id="modal_nav5_1"
+                                    onclick="modalMenuClick('modal_nav5_1', 'modalMenusContent5_1')">장소</div>
+                                <div class="modal_nav" id="modal_nav5_2"
+                                    onclick="modalMenuClick('modal_nav5_2', 'modalMenusContent5_2')">위치</div>
+                            </div>
+                        </div>
+                        <div class="container_modal">
+                            <div class="v-content" style="width: 100%; display: none;" id="modalMenusContent5_1">
+                                <div style="width: 100%; padding: 2%;">
+                                    <div class="slider">
+                                        <div class="slides" id="slides5">
+                                            <div class="slide">
+                                                <img src="./영화 장소/왕곡마을1.jpeg" alt="Image 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/왕곡마을2.jpeg" alt="Image 2">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/왕곡마을3.jpeg" alt="Image 3">
+                                            </div>
+                                        </div>
+                                        <button class="prev">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                    <div style="color: white; padding-top: 3%; padding-bottom: 1%;">
+                                        <div class="modal-content-text word">
+                                            왕곡마을
+                                        </div>
+                                        <div class="modal-content-text word_content">
+                                            동해안의 수려한 자연환경 속에 자리한 전통 한옥마을로, 14세기 경부터 강릉 함씨와 강릉 최씨, 용궁 김씨 등이 모여 사는 집성촌이다.
+                                            고려 말에 함부열이 조선의 건국에 반대하여 은거한데서 비롯되며, 임진왜란으로 폐허화된 후 150여년에 걸쳐 형성된 마을이다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="v-content video-container" style="padding-bottom:3%;" id="modalMenusContent5_2">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3129.38219334947!2d128.4999646!3d38.3401352!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5fd8eccb777df81b%3A0x1ce87dfcd1ce6c53!2z6rOg7ISxIOyZleqzoeuniOydhA!5e0!3m2!1sko!2skr!4v1716727225542!5m2!1sko!2skr"
+                                    width="90%" height="450" style="border:0; border-radius: 5px;" allowfullscreen=""
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 모달 6 -->
+            <div id="myModal6" class="modal">
+                <div class="modal-content">
+                    <div class="modal_box">
+                        <div class="container_modal" style="position: relative;">
+                            <span class="close" onclick="closeModal('myModal6')">&times;</span>
+                            <img src="늑대소년.jpeg" width="100%" style="border-radius: 10px;" alt="늑대소년">
+                            <div class="modal_title" style="position: absolute; top:50%; left: 10%;">늑대소년</div>
+                            <div class="modal_title">
+                                <a href="video6.html" target="_blank"
+                                    style="padding: 1% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px);; top:60%; left: 10%; font-weight: 400;">
+                                    <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                                    스토리
+                                </a>
+                            </div>
+                            <div
+                                style="position: absolute; width: 100%; height: 19%; top:81%; background: linear-gradient(to bottom, rgba(0, 79, 255, 0), rgba(24, 24, 24, 0.19), rgba(24, 24, 24, 0.43), rgba(24, 24, 24, 0.66), rgba(24, 24, 24, 1));">
+                            </div>
+                            <!-- 제목 수정해야합니다 -->
+                        </div>
+                        <div class="container_modal" style="padding-left: 5%;">
+                            <div class="modal_title"
+                                style="float: left; text-align: left; width:60%; font-size: clamp(10px, 2vw, 16px);; font-weight: 400;">
+                                요양 차 가족들과 한적한 마을로 이사 간 소녀는 어둠 속에 몸을 숨긴 의문의 늑대소년을 발견한다. 야생의 눈빛으로 사람 같지 않은 행동을 보이는 소년에게 왠지
+                                마음이 쓰인다.
+                            </div>
+                            <div style="float: left; width: 40%;">
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    개봉 : 2012.10.31</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    등급 : 15세 이상 관람가</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    장르 : 멜로/로맨스, 드라마, 판타지</div>
+                            </div>
+                        </div>
+                        <div class="container_modal" style="text-align: left; padding-left: 5%;">
+                            <div class="container_modal_nav" style="display: inline-block;">
+                                <div class="modal_nav" id="modal_nav6_1"
+                                    onclick="modalMenuClick('modal_nav6_1', 'modalMenusContent6_1')">장소</div>
+                                <div class="modal_nav" id="modal_nav6_2"
+                                    onclick="modalMenuClick('modal_nav6_2', 'modalMenusContent6_2')">위치</div>
+                            </div>
+                        </div>
+                        <div class="container_modal">
+                            <div class="v-content" style="width: 100%; display: none;" id="modalMenusContent6_1">
+                                <div style="width: 100%; padding: 2%;">
+                                    <div class="slider">
+                                        <div class="slides" id="slides6">
+                                            <div class="slide">
+                                                <img src="./영화 장소/제주 물영아리 오름1.jpg" alt="Image 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/제주 물영아리 오름2.jpg" alt="Image 2">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/제주 물영아리 오름3.jpg" alt="Image 3">
+                                            </div>
+                                        </div>
+                                        <button class="prev">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                    <div style="color: white; padding-top: 3%; padding-bottom: 1%;">
+                                        <div class="modal-content-text word">
+                                            제주 물영아리 오름
+                                        </div>
+                                        <div class="modal-content-text word_content">
+                                            영아리는 신령스런 산이란 뜻이다.
+                                            앞에 ‘물’이란 접두어가 붙은 것은 분화구에 물이 고인 습지를 품고 있기 때문이다.
+                                            물영아리오름은 수망리 중잣성 생태 탐방로와 연계되어 있다.
+                                            잣성은 제주도의 전통적인 목축 문화 유물로 목초지에 쌓아 올린 경계용 돌담을 뜻한다.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 100%; padding: 2%;">
+                                    <div class="slider">
+                                        <div class="slides" id="slides6">
+                                            <div class="slide">
+                                                <img src="./영화 장소/용눈이 오름1.jpeg" alt="Image 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/용눈이 오름2.jpeg" alt="Image 2">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/용눈이 오름3.jpeg" alt="Image 3">
+                                            </div>
+                                        </div>
+                                        <button class="prev">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                    <div style="color: white; padding-top: 3%; padding-bottom: 1%;">
+                                        <div class="modal-content-text word">
+                                            용눈이 오름
+                                        </div>
+                                        <div class="modal-content-text word_content">
+                                            구좌읍에 위치한 용눈이 오름은 해발 247.8m, 높이 88m, 둘레 2,685m 정도 되는 오름으로 360여개의 오름들 중 유일하게
+                                            분화구가 3개이다. 봄, 여름에는 잔디가 가을, 겨울에는 억새가 덮이며 계절마다 옷을 갈아입는다. 인체의 곡선처럼 부드러운 능선이 유독
+                                            아름다워 많은 사진 작가들이 찾는다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="v-content video-container" id="modalMenusContent6_2">
+                                <div class="slider"
+                                    style="padding-bottom: 3%; left: 5%; width: 90%; border-radius: 5px; overflow: hidden;">
+                                    <div class="slides" id="slides2">
+                                        <div class="slide" style="height: 450px;">
+                                            <iframe
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3332.07034802828!2d126.69355539999998!3d33.3692294!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350d015483043093%3A0xe9e0844e626536be!2z66y87JiB7JWE66as7Jik66aE!5e0!3m2!1sko!2skr!4v1716727329414!5m2!1sko!2skr"
+                                                width="100%" height="450" style="border:0;" allowfullscreen=""
+                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        </div>
+                                        <div class="slide" style="height: 450px;">
+                                            <iframe
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13314.363096516288!2d126.82117725776139!3d33.459966674168214!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x350d1118df3bdd97%3A0xc8bed450cf316cda!2z7Jqp64iI7J207Jik66aE!5e0!3m2!1sko!2skr!4v1717169807198!5m2!1sko!2skr"
+                                                width="100%" height="450" style="border:0;" allowfullscreen=""
+                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        </div>
+                                    </div>
+                                    <button class="prev">&lt;</button>
+                                    <button class="next">&gt;</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 모달 7 -->
+            <div id="myModal7" class="modal">
+                <div class="modal-content">
+                    <div class="modal_box">
+                        <div class="container_modal" style="position: relative;">
+                            <span class="close" onclick="closeModal('myModal7')">&times;</span>
+                            <img src="광해.jpeg" width="100%" style="border-radius: 10px;" alt="광해, 왕이 된 남자">
+                            <div class="modal_title" style="position: absolute; top:50%; left: 10%;">광해, 왕이 된 남자</div>
+                            <div class="modal_title">
+                                <a href="video7.html" target="_blank"
+                                    style="padding: 1% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px);; top:60%; left: 10%; font-weight: 400;">
+                                    <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                                    스토리
+                                </a>
+                            </div>
+                            <div
+                                style="position: absolute; width: 100%; height: 19%; top:81%; background: linear-gradient(to bottom, rgba(0, 79, 255, 0), rgba(24, 24, 24, 0.19), rgba(24, 24, 24, 0.43), rgba(24, 24, 24, 0.66), rgba(24, 24, 24, 1));">
+                            </div>
+                            <!-- 제목 수정해야합니다 -->
+                        </div>
+                        <div class="container_modal" style="padding-left: 5%;">
+                            <div class="modal_title"
+                                style="float: left; text-align: left; width:60%; font-size: clamp(10px, 2vw, 16px);; font-weight: 400;">
+                                광해는 왕위를 차지하기 위한 치열한 다툼과 분쟁에 점점 이성을 잃어가고, 곧 도승지 허균에게 그를 대신해 위협에 노출될 대역을 찾으라 명한다.
+                            </div>
+                            <div style="float: left; width: 40%;">
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    개봉 : 2012.09.13</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    등급 : 15세 이상 관람가</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    장르 : 드라마</div>
+                            </div>
+                        </div>
+                        <div class="container_modal" style="text-align: left; padding-left: 5%;">
+                            <div class="container_modal_nav" style="display: inline-block;">
+                                <div class="modal_nav" id="modal_nav7_1"
+                                    onclick="modalMenuClick('modal_nav7_1', 'modalMenusContent7_1')">장소</div>
+                                <div class="modal_nav" id="modal_nav7_2"
+                                    onclick="modalMenuClick('modal_nav7_2', 'modalMenusContent7_2')">위치</div>
+                            </div>
+                        </div>
+                        <div class="container_modal">
+                            <div class="v-content" style="width: 100%; display: none;" id="modalMenusContent7_1">
+                                <div style="width: 100%; padding: 2%;">
+                                    <div class="slider">
+                                        <div class="slides" id="slides7">
+                                            <div class="slide">
+                                                <img src="./영화 장소/안동 고택1.jpeg" alt="Image 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/안동 고택2.jpeg" alt="Image 2">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/안동 고택3.jpeg" alt="Image 3">
+                                            </div>
+                                        </div>
+                                        <button class="prev">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                    <div style="color: white; padding-top: 3%; padding-bottom: 1%;">
+                                        <div class="modal-content-text word">
+                                            안동 고택
+                                        </div>
+                                        <div class="modal-content-text word_content">
+                                            오랜 가문들의 역사가 살아 숨 쉬는 경상북도 안동은 그 이름만으로도 고즈넉한 한옥이 떠오르는 유서 깊은 고장이다. 천등산 자락에 있는
+                                            안동고택 이상루는 고려 태조 때의 공신이며 안동 김씨(安東金氏)의 시조인 김선평(金宣平)의 단소(壇所)를 지키고 제사를 지내기 위한
+                                            곳으로 250년이라는 역사를 고스란히 간직한 채 위엄을 지키고 있다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="v-content video-container" style="padding-bottom: 3%;"
+                                id="modalMenusContent7_2">
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58692.09279882583!2d128.5200087911733!3d36.56644045489983!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3566a6a0962d685b%3A0x438476656ff3f5d3!2z7JWI64-ZIO2WpeyCsOqzoO2DnQ!5e0!3m2!1sko!2skr!4v1717170167276!5m2!1sko!2skr"
+                                    width="90%" height="450" style="border:0; border-radius: 5px;" allowfullscreen=""
+                                    loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 모달 8 -->
+            <div id="myModal8" class="modal">
+                <div class="modal-content">
+                    <div class="modal_box">
+                        <div class="container_modal" style="position: relative;">
+                            <span class="close" onclick="closeModal('myModal8')">&times;</span>
+                            <img src="관상.jpeg" width="100%" style="border-radius: 10px;" alt="관상">
+                            <div class="modal_title" style="position: absolute; top:50%; left: 10%;">관상</div>
+                            <div class="modal_title">
+                                <a href="video8.html" target="_blank"
+                                    style="padding: 1% 1.5%; color: black; position: absolute; border-radius: 3px; background: white; font-size: clamp(10px, 2vw, 18px);; top:60%; left: 10%; font-weight: 400;">
+                                    <span style="font-weight: 900; font-size: clamp(12px, 2vw, 20px);">▶</span>
+                                    스토리
+                                </a>
+                            </div>
+                            <div
+                                style="position: absolute; width: 100%; height: 19%; top:81%; background: linear-gradient(to bottom, rgba(0, 79, 255, 0), rgba(24, 24, 24, 0.19), rgba(24, 24, 24, 0.43), rgba(24, 24, 24, 0.66), rgba(24, 24, 24, 1));">
+                            </div>
+                            <!-- 제목 수정해야합니다 -->
+                        </div>
+                        <div class="container_modal" style="padding-left: 5%;">
+                            <div class="modal_title"
+                                style="float: left; text-align: left; width:60%; font-size: clamp(10px, 2vw, 16px);; font-weight: 400;">
+                                얼굴을 보면 그 사람의 모든 것을 꿰뚫어보는 천재 관상가 내경. ‘수양대군’이 역모를 꾀하고 있음을 알게 된 그는 위태로운 조선의 운명을 바꾸려 한다.
+                            </div>
+                            <div style="float: left; width: 40%;">
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    개봉 : 2013.09.11</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    등급 : 15세 이상 관람가</div>
+                                <div class="modal_title"
+                                    style="padding-bottom: 3%; padding-left: 12%; text-align: left; width:60%; font-size: clamp(8px, 2vw, 14px);; font-weight: 400;">
+                                    장르 : 드라마</div>
+                            </div>
+                        </div>
+                        <div class="container_modal" style="text-align: left; padding-left: 5%;">
+                            <div class="container_modal_nav" style="display: inline-block;">
+                                <div class="modal_nav" id="modal_nav8_1"
+                                    onclick="modalMenuClick('modal_nav8_1', 'modalMenusContent8_1')">장소</div>
+                                <div class="modal_nav" id="modal_nav8_2"
+                                    onclick="modalMenuClick('modal_nav8_2', 'modalMenusContent8_2')">위치</div>
+                            </div>
+                        </div>
+                        <div class="container_modal">
+                            <div class="v-content" style="width: 100%; display: none;" id="modalMenusContent8_1">
+                                <div style="width: 100%; padding: 2%;">
+                                    <div class="slider">
+                                        <div class="slides" id="slides8">
+                                            <div class="slide">
+                                                <img src="./영화 장소/유명산1.jpg" alt="Image 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/유명산2.jpg" alt="Image 2">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/유명산3.jpg" alt="Image 3">
+                                            </div>
+                                        </div>
+                                        <button class="prev">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                    <div style="color: white; padding-top: 3%; padding-bottom: 1%;">
+                                        <div class="modal-content-text word">
+                                            유명산
+                                        </div>
+                                        <div class="modal-content-text word_content">
+                                            유명산 설매재는 관상의 주인공 내경의 가족이 마음 편히 살던 시절의 집이다.
+                                            설매재휴양림 입구를 지나쳐 30분 정도 걸어 들어가면 억새밭 한가운데 내경의 집이 보인다.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="width: 100%; padding: 2%;">
+                                    <div class="slider">
+                                        <div class="slides" id="slides8">
+                                            <div class="slide">
+                                                <img src="./영화 장소/군자마을1.jpeg" alt="Image 1">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/군자마을2.jpeg" alt="Image 2">
+                                            </div>
+                                            <div class="slide">
+                                                <img src="./영화 장소/군자마을3.jpeg" alt="Image 3">
+                                            </div>
+                                        </div>
+                                        <button class="prev">&lt;</button>
+                                        <button class="next">&gt;</button>
+                                    </div>
+                                    <div
+                                        style="color: white; padding-top: 3%; padding-bottom: 1%; vertical-align: top;">
+                                        <div class="modal-content-text word">
+                                            군자 마을
+                                        </div>
+                                        <div class="modal-content-text word_content">
+                                            안동 군자마을 역시 600여 년 전 조선 초기부터 광산김씨 예안파 김효로가 정착하며 후손들로 형성된 유서 깊은 마을이다. 1974년
+                                            안동댐 건설로 외내(오천)가 수몰될 위기에 처하자 마을 소유의 모든
+                                            문화재(가옥,정자,유물)을 원형 그대로 옮겼다. 그런 이유에서 군자마을을 오천 유적지라고도 부른다.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="v-content video-container" id="modalMenusContent8_2">
+                                <div class="slider"
+                                    style="padding-bottom: 3%; left: 5%; width: 90%; border-radius: 5px; overflow: hidden;">
+                                    <div class="slides" id="slides2">
+                                        <div class="slide" style="height: 450px;">
+                                            <iframe
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1580.698705293116!2d127.49248759999993!3d37.59280495!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3563395d51d06e0d%3A0xb675ccb25a07fe!2z7Jyg66qF7IKw!5e0!3m2!1sko!2skr!4v1716727587746!5m2!1sko!2skr"
+                                                width="100%" height="450" style="border:0;" allowfullscreen=""
+                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        </div>
+                                        <div class="slide" style="height: 450px;">
+                                            <iframe
+                                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1659300.4685527056!2d126.45277129767886!3d35.68140366634261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3566ae14515a0d27%3A0xf58fe36c67fd5b4f!2z7JWI64-Z6rWw7J6Q66eI7J2E!5e0!3m2!1sko!2skr!4v1717170014162!5m2!1sko!2skr"
+                                                width="100%" height="450" style="border:0;" allowfullscreen=""
+                                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                        </div>
+                                    </div>
+                                    <button class="prev">&lt;</button>
+                                    <button class="next">&gt;</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="container" style="text-align: center; height: 20vh;">
+            <div style="height: 80%;"></div>
+            <div id="clock" style="color: white;"></div>
+        </footer>
+    </div>
+    <script src="main_page_onetrue_ver3 copy.js"></script>
+</body>
+
+</html>
