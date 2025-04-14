@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>원 클릭 정보 지도</title>
+  <style>
+    body {
+      margin: 0;
+      background: #eee;
+      font-family: sans-serif;
+    }
+
+    .map-container {
+      width: 1000px;
+      height: 1000px;
+      overflow: hidden;
+      position: relative;
+      border: 3px solid #444;
+      margin: 50px auto;
+      touch-action: none;
+      cursor: grab;
+      background: #ccc;
+    }
+
+    .map-container:active {
+      cursor: grabbing;
+    }
+
+    .map-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      user-select: none;
+      -webkit-user-drag: none;
+      transform-origin: top left;
+      transition: transform 0.1s ease;
+    }
+
+    .zoom-controls {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+    }
+
+    .zoom-controls button {
+      display: block;
+      margin-bottom: 5px;
+      padding: 5px 10px;
+      font-size: 18px;
+      background: white;
+      border: 1px solid #aaa;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .zoom-controls button:hover {
+      background: #eee;
+    }
+
+    /* 🔵 정보가 담긴 원 마커 스타일 */
+    .info-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: rgba(0, 123, 255, 0.6); /* 반투명 파란색 */
+      position: absolute;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      z-index: 5;
+      border: 2px solid white;
+    }
+
+    /* 정보 텍스트 박스 스타일 */
+    .info-box {
+      position: absolute;
+      background: white;
+      border: 1px solid #ccc;
+      padding: 8px;
+      font-size: 14px;
+      border-radius: 6px;
+      z-index: 10;
+      display: none;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="map-container" id="mapContainer">
+    <div class="zoom-controls">
+      <button id="zoomIn">＋</button>
+      <button id="zoomOut">－</button>
+    </div>
+    <img src="map.png" alt="지도 이미지" class="map-image" id="mapImage">
+    <!-- 정보 표시용 텍스트 박스 -->
+    <div class="info-box" id="infoBox"></div>
+  </div>
+
+  <script>
+    const container = document.getElementById('mapContainer');
+    const map = document.getElementById('mapImage');
+    const infoBox = document.getElementById('infoBox');
+
+    let isDragging = false;
+    let startX, startY, currentX = 0, currentY = 0;
+    let scale = 0.5;
+    let lastTouchDist = null;
+
+    function updateTransform() {
+      map.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
+
+      // 모든 info-circle 위치 재계산 (줌/이동 대응)
+      document.querySelectorAll('.info-circle').forEach(circle => {
+        const cx = parseFloat(circle.dataset.mapX);
+        const cy = parseFloat(circle.dataset.mapY);
+        circle.style.left = `${cx * scale + currentX}px`;
+        circle.style.top = `${cy * scale + currentY}px`;
+      });
+
+      // infoBox 위치도 다시 계산
+      if (infoBox.dataset.active === 'true') {
+        const cx = parseFloat(infoBox.dataset.mapX);
+        const cy = parseFloat(infoBox.dataset.mapY);
+        infoBox.style.left = `${cx * scale + currentX + 20}px`;
+        infoBox.style.top = `${cy * scale + currentY}px`;
+      }
+    }
+
+    function clampPosition() {
+      const maxX = 0, maxY = 0;
+      const minX = container.clientWidth - map.naturalWidth * scale;
+      const minY = container.clientHeight - map.naturalHeight * scale;
+      currentX = Math.min(maxX, Math.max(minX, currentX));
+      currentY = Math.min(maxY, Math.max(minY, currentY));
+    }
+
+    // 🟦 정보 마커 추가 함수 (지도 상의 좌표와 정보 문자열 입력)
+    function addInfoCircle(mapX, mapY, text) {
+      const circle = document.createElement('div');
+      circle.className = 'info-circle';
+      circle.dataset.mapX = mapX;
+      circle.dataset.mapY = mapY;
+      circle.dataset.info = text;
+      container.appendChild(circle);
+
+      // 클릭 시 정보 표시
+      circle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        infoBox.textContent = text;
+        infoBox.dataset.mapX = mapX;
+        infoBox.dataset.mapY = mapY;
+        infoBox.dataset.active = 'true';
+        infoBox.style.display = 'block';
+        updateTransform();
+      });
+    }
+
+    // 배경 클릭 시 infoBox 숨기기
+    container.addEventListener('click', () => {
+      infoBox.style.display = 'none';
+      infoBox.dataset.active = 'false';
+    });
+
+    // 🎯 여기에 원하는 위치의 정보 마커를 추가하세요
+    const markers = [
+      { x: 600, y: 300, text: '이곳은 도서관입니다.' },
+      { x: 750, y: 450, text: '이곳은 카페입니다.' },
+    ];
+
+    markers.forEach(marker => {
+      addInfoCircle(marker.x, marker.y, marker.text);
+    });
+
+    // 🖱️ 마우스 드래그
+    container.addEventListener('mousedown', e => {
+      isDragging = true;
+      startX = e.clientX - currentX;
+      startY = e.clientY - currentY;
+    });
+
+    window.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      currentX = e.clientX - startX;
+      currentY = e.clientY - startY;
+      clampPosition();
+      updateTransform();
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    // 📱 터치 이동/줌
+    container.addEventListener('touchstart', e => {
+      if (e.touches.length === 1) {
+        isDragging = true;
+        startX = e.touches[0].clientX - currentX;
+        startY = e.touches[0].clientY - currentY;
+      } else if (e.touches.length === 2) {
+        lastTouchDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+      }
+    });
+
+    container.addEventListener('touchmove', e => {
+      if (e.touches.length === 1 && isDragging) {
+        currentX = e.touches[0].clientX - startX;
+        currentY = e.touches[0].clientY - startY;
+        clampPosition();
+        updateTransform();
+      } else if (e.touches.length === 2 && lastTouchDist !== null) {
+        const newDist = Math.hypot(
+          e.touches[0].clientX - e.touches[1].clientX,
+          e.touches[0].clientY - e.touches[1].clientY
+        );
+        const deltaScale = newDist / lastTouchDist;
+        lastTouchDist = newDist;
+        scale *= deltaScale;
+        scale = Math.min(3, Math.max(0.5, scale));
+        clampPosition();
+        updateTransform();
+      }
+    });
+
+    container.addEventListener('touchend', () => {
+      isDragging = false;
+      lastTouchDist = null;
+    });
+
+    // Ctrl + 휠 줌
+    container.addEventListener('wheel', e => {
+      if (!e.ctrlKey) return;
+      e.preventDefault();
+      const delta = e.deltaY < 0 ? 1.1 : 0.9;
+      const prevScale = scale;
+      scale *= delta;
+      scale = Math.min(3, Math.max(0.5, scale));
+
+      const rect = container.getBoundingClientRect();
+      const dx = e.clientX - rect.left - currentX;
+      const dy = e.clientY - rect.top - currentY;
+      currentX -= dx * (scale - prevScale) / prevScale;
+      currentY -= dy * (scale - prevScale) / prevScale;
+
+      clampPosition();
+      updateTransform();
+    }, { passive: false });
+
+    document.getElementById('zoomIn').addEventListener('click', () => {
+      scale = Math.min(3, scale * 1.2);
+      clampPosition();
+      updateTransform();
+    });
+
+    document.getElementById('zoomOut').addEventListener('click', () => {
+      scale = Math.max(0.5, scale / 1.2);
+      clampPosition();
+      updateTransform();
+    });
+
+    map.onload = () => {
+      currentX = (container.clientWidth - map.naturalWidth * scale) / 2;
+      currentY = (container.clientHeight - map.naturalHeight * scale) / 2;
+      clampPosition();
+      updateTransform();
+    };
+  </script>
+</body>
+</html>
